@@ -1,0 +1,40 @@
+﻿<Window x:Class="_09_03_20_HomeWork_BlogLesson51.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_09_03_20_HomeWork_BlogLesson51"
+        xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <StackPanel.Resources>
+            <sys:Double x:Key="globalResourceMargin">20</sys:Double>
+        </StackPanel.Resources>
+        <TextBlock>
+            <TextBlock.Margin>
+                <Thickness Left="{StaticResource globalResourceMargin}" Right="{StaticResource globalResourceMargin}" Top="{StaticResource globalResourceMargin}" Bottom="{StaticResource globalResourceMargin}"></Thickness>
+            </TextBlock.Margin>
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Setters>
+                        <Setter Property="Background" Value="{Binding BrushForBorder}"></Setter>
+                        <Setter Property="Height" Value="100"></Setter>
+                    </Style.Setters>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ChangingBrushFlag}" Value="True">
+                            <Setter Property="Background" Value="{Binding BrushForBorder}"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Border x:Name="brdBorder" Height="100" Background="Green">
+            <Border.Margin>
+                <Thickness Left="{StaticResource globalResourceMargin}" Right="{StaticResource globalResourceMargin}" Top="{StaticResource globalResourceMargin}" Bottom="{StaticResource globalResourceMargin}"></Thickness>
+            </Border.Margin>
+        </Border>
+        <Button Margin="10" Click="Button_Click">Ruffle colors</Button>
+    </StackPanel>
+
+</Window>
